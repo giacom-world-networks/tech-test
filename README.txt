@@ -43,3 +43,6 @@ Create report to find out lost profit from failed orders
 Try from Mac/VS Community
 
 Postman collection
+
+"If you happen to run with any issues when running the Docker container, try deselecting Hyper-V Services in "Windows Features"
+ (Search for Windows Features in Start Menu), selecting again, and then restarting your computer"

@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.WebAPI", "Order.WebAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Service", "Order.Service\Order.Service.csproj", "{2EAFB407-2A71-4AF2-95D8-4D309C3B174E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Model", "Order.Model\Order.Model.csproj", "{C1C3D7F8-832C-4992-AE82-F71D96977E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Model", "Order.Model\Order.Model.csproj", "{C1C3D7F8-832C-4992-AE82-F71D96977E6E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Data", "Order.Data\Order.Data.csproj", "{F4F259A3-F3B6-477B-9FD4-C4405E6D3EAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Service.Tests", "Order.Service.Tests\Order.Service.Tests.csproj", "{9F52597F-E1AF-4993-AB6A-EF11605AC1B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F4F259A3-F3B6-477B-9FD4-C4405E6D3EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4F259A3-F3B6-477B-9FD4-C4405E6D3EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4F259A3-F3B6-477B-9FD4-C4405E6D3EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F52597F-E1AF-4993-AB6A-EF11605AC1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F52597F-E1AF-4993-AB6A-EF11605AC1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F52597F-E1AF-4993-AB6A-EF11605AC1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F52597F-E1AF-4993-AB6A-EF11605AC1B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

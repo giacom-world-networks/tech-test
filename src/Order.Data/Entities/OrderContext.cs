@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace OrderService.Data.Entities
+namespace Order.Data.Entities
 {
     public partial class OrderContext : DbContext
     {

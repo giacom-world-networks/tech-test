@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Order.Data.Entities;
 using Order.Model;
-using OrderService.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OrderService.Data
+namespace Order.Data
 {
     public class OrderRepository : IOrderRepository
     {
@@ -19,21 +19,22 @@ namespace OrderService.Data
 
         public async Task<IEnumerable<OrderSummary>> GetOrdersAsync()
         {
-            var orders = await _orderContext.Order
-                .Select(x => new OrderSummary
-                {
-                    Id = new Guid(x.Id),
-                    ResellerId = new Guid(x.ResellerId),
-                    CustomerId = new Guid(x.CustomerId),
-                    StatusId = new Guid(x.StatusId),
-                    StatusName = x.Status.Name,
-                    ItemCount = x.Items.Count,
-                    TotalCost = x.Items.Sum(i => i.Quantity * i.Product.UnitCost).Value,
-                    TotalPrice = x.Items.Sum(i => i.Quantity * i.Product.UnitPrice).Value,
-                    CreatedDate = x.CreatedDate
-                })
+            var orderEntities = await _orderContext.Order
                 .OrderByDescending(x => x.CreatedDate)
                 .ToListAsync();
+
+            var orders = orderEntities.Select(x => new OrderSummary
+            {
+                Id = new Guid(x.Id),
+                ResellerId = new Guid(x.ResellerId),
+                CustomerId = new Guid(x.CustomerId),
+                StatusId = new Guid(x.StatusId),
+                StatusName = x.Status.Name,
+                ItemCount = x.Items.Count,
+                TotalCost = x.Items.Sum(i => i.Quantity * i.Product.UnitCost).Value,
+                TotalPrice = x.Items.Sum(i => i.Quantity * i.Product.UnitPrice).Value,
+                CreatedDate = x.CreatedDate
+            });
 
             return orders;
         }

@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Order.Data;
+using Order.Data.Entities;
 using Order.Service;
-using OrderService.Data;
-using OrderService.Data.Entities;
 
 namespace OrderService.WebAPI
 {

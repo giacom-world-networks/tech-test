@@ -1,4 +1,4 @@
-﻿namespace OrderService.Data.Entities
+﻿namespace Order.Data.Entities
 {
     public partial class OrderItem
     {

@@ -49,7 +49,7 @@ namespace Order.Data
                 .ThenInclude(x => x.Service)
                 .Include(x => x.Items)
                 .ThenInclude(x => x.Product)
-                .SingleOrDefaultAsync(x => x.Id == orderIdBytes);
+                .SingleOrDefaultAsync(x => x.Id.SequenceEqual(orderIdBytes));
 
             if (order == null)
             {
@@ -66,7 +66,7 @@ namespace Order.Data
                 CreatedDate = order.CreatedDate,
                 TotalCost = order.Items.Sum(x => x.Quantity * x.Product.UnitCost).Value,
                 TotalPrice = order.Items.Sum(x => x.Quantity * x.Product.UnitPrice).Value,
-                Items = order.Items.Select(x => new Order.Model.OrderItem
+                Items = order.Items.Select(x => new Model.OrderItem
                 {
                     Id = new Guid(x.Id),
                     OrderId = new Guid(x.OrderId),

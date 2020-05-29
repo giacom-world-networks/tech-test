@@ -42,15 +42,8 @@ namespace Order.Data
         public async Task<OrderDetail> GetOrderByIdAsync(Guid orderId)
         {
             var orderIdBytes = orderId.ToByteArray();
-            
-            var order = await _orderContext.Order
-                .Include(x => x.Status)
-                .Include(x => x.Items)
-                .ThenInclude(x => x.Service)
-                .Include(x => x.Items)
-                .ThenInclude(x => x.Product)
-                .SingleOrDefaultAsync(x => x.Id.SequenceEqual(orderIdBytes));
 
+            var order = await _orderContext.Order.SingleOrDefaultAsync(x => _orderContext.Database.IsInMemory() ? x.Id.SequenceEqual(orderIdBytes) : x.Id == orderIdBytes );
             if (order == null)
             {
                 return null;

@@ -26,7 +26,9 @@ namespace OrderService.WebAPI
                     services.AddDbContext<OrderContext>(options =>
                     {
                         var serviceOptions = builder.Configuration["OrderConnectionString"];
-                        options.UseMySQL(serviceOptions);
+                        options
+                        .UseLazyLoadingProxies()
+                        .UseMySQL(serviceOptions);
                     });
 
                     services.AddScoped<IOrderService, Order.Service.OrderService>();

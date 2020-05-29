@@ -23,6 +23,8 @@ namespace Order.Service.Tests
         {
             var options = new DbContextOptionsBuilder<OrderContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .EnableDetailedErrors(true)
+                .EnableSensitiveDataLogging(true)
                 .Options;
 
             _orderContext = new OrderContext(options);

@@ -12,7 +12,10 @@ Copyright / Disclaimer
 
 Remove and sort
 Comments
-Bugs
+
+Bugs / Code Smells
+Peformance issue
+
 Paging?
 
 TESTS TESTS TESTS!!!

@@ -17,11 +17,11 @@ Giacom aka ‘Cloud Market’ is a B2B e-commerce platform which allows IT compa
 You should allocate approx. 2 hours to complete the tech test.
 
 ## Pre-Reqs
-Visual Studio (or compatible IDE for working with .net Core)
-Git
-Docker (running Linux containers)
-Heidi / MySQL Workbench (database client)
-Postman (can also use other API client / browser)
+* Visual Studio (or compatible IDE for working with .net Core)
+* Git
+* Docker (running Linux containers)
+* Heidi / MySQL Workbench (database client)
+* Postman (can also use other API client / browser)
 
 ## Setup
 1. Fork this repository and clone it locally
@@ -44,6 +44,8 @@ Finally, once code-complete, close your IDE, run 'docker-compose down --volumes'
 Email development@giacom.com (TBC - Need a new mailbox?) a link to the forked repository or a zip file containing the repository. If applicable, add notes in the email to explain why you have chosen a particular approach.
 
 ## Help
-If you happen to run with any issues when running the Docker container, try deselecting Hyper-V Services in "Windows Features" (Search for Windows Features in Start Menu), selecting again, and then restarting your computer. If you experience any further issues getting set up with the tech test please email development@giacom.com (TBC - Need a new mailbox?).
+If you happen to run with any issues when running the Docker container, try deselecting Hyper-V Services in "Windows Features" (Search for Windows Features in Start Menu), selecting again, and then restarting your computer.
+
+If you experience any further issues getting set up with the tech test please email development@giacom.com (TBC - Need a new mailbox?).
 
 Copyright (c) 2020, Giacom World Networks Ltd.

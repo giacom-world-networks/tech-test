@@ -49,7 +49,7 @@ namespace Order.Data
                 .ThenInclude(x => x.Service)
                 .Include(x => x.Items)
                 .ThenInclude(x => x.Product)
-                .FirstOrDefaultAsync(x => x.Id == orderIdBytes);
+                .SingleOrDefaultAsync(x => x.Id == orderIdBytes);
 
             if (order == null)
             {

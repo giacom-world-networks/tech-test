@@ -83,6 +83,49 @@ namespace Order.Service.Tests
             Assert.AreEqual(2.7m, order3.TotalPrice);
         }
 
+        [Test]
+        public async Task GetOrderByIdAsync_ReturnsCorrectOrder()
+        {
+            // Arrange
+            var orderId1 = Guid.NewGuid();
+            await AddOrder(orderId1, 1);
+
+            // Act
+            var order = await _orderService.GetOrderByIdAsync(orderId1);
+
+            // Assert
+            Assert.AreEqual(orderId1, order.Id);
+        }
+
+        [Test]
+        public async Task GetOrderByIdAsync_ReturnsCorrectOrderItemCount()
+        {
+            // Arrange
+            var orderId1 = Guid.NewGuid();
+            await AddOrder(orderId1, 1);
+
+            // Act
+            var order = await _orderService.GetOrderByIdAsync(orderId1);
+
+            // Assert
+            Assert.AreEqual(1, order.Items.Count());
+        }
+
+        [Test]
+        public async Task GetOrderByIdAsync_ReturnsOrderWithCorrectTotals()
+        {
+            // Arrange
+            var orderId1 = Guid.NewGuid();
+            await AddOrder(orderId1, 2);
+
+            // Act
+            var order = await _orderService.GetOrderByIdAsync(orderId1);
+
+            // Assert
+            Assert.AreEqual(1.6m, order.TotalCost);
+            Assert.AreEqual(1.8m, order.TotalPrice);
+        }
+
         private async Task AddOrder(Guid orderId, int quantity)
         {
             var orderIdBytes = orderId.ToByteArray();

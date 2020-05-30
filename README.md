@@ -20,17 +20,14 @@ You should allocate approx. 2 hours to complete the tech test.
 * Visual Studio (or compatible IDE for working with .net Core)
 * Git
 * Docker (running Linux containers)
-* Heidi / MySQL Workbench (database client)
-* Postman (can also use other API client / browser)
+* Optional: MySQL Workbench / Heidi (database client)
+* Optional: Postman (can also use any other API client or a browser)
 
 ## Setup
 1. Fork this repository and clone it locally
 2. Using a terminal, cd to the local repository and run 'docker-compose up db', which will start and seed the database
-3. Check connectivity to the local docker database is working by opening your database client and connecting to:
-   Hostname: localhost
-   Username: order-service
-   Password: nmCsdkhj20n@Sa
-4. Open the solution file in /src
+3. Open the solution file in /src
+4. Start debugging or run the Order.WebAPI project then query http://localhost:8000/orders in your API client / browser to test that setup is complete. You should see orders being returned from the API
    
 ## Tasks
 1. Add a new API endpoint which returns orders with a specified status e.g. 'Failed'
@@ -45,6 +42,11 @@ Email development@giacom.com (TBC - Need a new mailbox?) a link to the forked re
 
 ## Help
 If you happen to run into any issues when running the Docker container, try deselecting Hyper-V Services in "Windows Features" (Search for Windows Features in Start Menu), selecting again, and then restarting your computer.
+
+To connect to the MySQL database directly the credentials are as follows:
+* Hostname: *localhost*
+* Username: *order-service*
+* Password: *nmCsdkhj20n@Sa*
 
 If you experience further issues getting set up with the tech test please email development@giacom.com (TBC - Need a new mailbox?).
 

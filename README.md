@@ -7,8 +7,8 @@ Giacom aka ‘Cloud Market’ is a B2B e-commerce platform which allows IT compa
 * Reseller = A customer of Giacom
 * Customer = A customer of a Reseller
 * Order = An order placed by a Reseller for a specific Customer
-* Order Item = An item for a particular service and product which belongs to an Order
-* Order Status = The current state of a specific order
+* Order Item = A service and product which belongs to an Order
+* Order Status = The current state of an Order
 * Product = An end-offering which can be purchased e.g. '100GB Mailbox'
 * Service = The category the Product belongs to e.g. 'Email'
 * Profit = The difference between Cost and Price
@@ -30,10 +30,10 @@ You should allocate approx. 2 hours to complete the tech test.
 4. Start debugging or run the Order.WebAPI project then query http://localhost:8000/orders in your API client / browser to test that setup is complete. You should see orders being returned from the API
    
 ## Tasks
-1. Add a new API endpoint which returns orders with a specified status e.g. 'Failed'
-2. Add a new API endpoint which allows an order status to be updated to a new status e.g. 'InProgress'
-3. Add a new API endpoint which allows an order to be created. This should include validation of any parameters.
-4. Add a new API endpoint which calculates profit by month for all completed orders
+1. Add a new API endpoint which returns Orders with a specified Order Status e.g. 'Failed'
+2. Add a new API endpoint which allows an Order Status to be updated to a new status e.g. 'InProgress'
+3. Add a new API endpoint which allows an Order to be created. This should include validation of any parameters.
+4. Add a new API endpoint which calculates Profit by month for all 'completed' Orders
 
 Finally, once code-complete, close your IDE, run 'docker-compose down --volumes' to stop and remove the database container. Now run 'docker-compose up'. This will run the local database and also build the microservice in Release mode. Test the API is working correctly via this method (as this is the one Giacom will run to test the submission).
 

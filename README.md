@@ -10,7 +10,7 @@ Giacom aka ‘Cloud Market’ is a B2B e-commerce platform which allows IT compa
 * Order Item = A service and product which belongs to an Order
 * Order Status = The current state of an Order
 * Product = An end-offering which can be purchased e.g. '100GB Mailbox'
-* Service = The category the Product belongs to e.g. 'Email'
+* Service = The category the Product belongs to e.g. 'Email't
 * Profit = The difference between Cost and Price
 
 ## Time
@@ -38,7 +38,7 @@ You should allocate approx. 2 hours to complete the tech test.
 Finally, once code-complete, close your IDE, run 'docker-compose down --volumes' to stop and remove the database container. Now run 'docker-compose up'. This will run the local database and also build the microservice in Release mode. Test the API is working correctly via this method (as this is the one Giacom will run to test the submission).
 
 ## Submission
-Email development@giacom.com (TBC - Need a new mailbox?) a link to the forked repository or a zip file containing the repository. If applicable, add notes in the email to explain why you have chosen a particular approach.
+Email development@giacom.com a link to the forked repository or a zip file containing the repository. If applicable, add notes in the email to explain why you have chosen a particular approach.
 
 ## Help
 If you happen to run into any issues when running the Docker container, try deselecting Hyper-V Services in "Windows Features" (Search for Windows Features in Start Menu), selecting again, and then restarting your computer.
@@ -48,6 +48,6 @@ To connect to the MySQL database directly the credentials are as follows:
 * Username: *order-service*
 * Password: *nmCsdkhj20n@Sa*
 
-If you experience further issues getting set up with the tech test please email development@giacom.com (TBC - Need a new mailbox?).
+If you experience further issues getting set up with the tech test please email development@giacom.com.
 
 Copyright (c) 2020, Giacom World Networks Ltd.

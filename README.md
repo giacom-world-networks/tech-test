@@ -24,7 +24,7 @@ You should allocate approx. 2 hours to complete the tech test.
 * Optional: Postman (can also use any other API client or a browser)
 
 ## Setup
-1. Fork this repository and clone it locally
+1. Clone this repository locally
 2. Using a terminal, cd to the local repository and run 'docker-compose up db', which will start and seed the database
 3. Open the solution file in /src
 4. Start debugging or run the Order.WebAPI project then query http://localhost:8000/orders in your API client / browser to test that setup is complete. You should see orders being returned from the API
@@ -38,7 +38,7 @@ You should allocate approx. 2 hours to complete the tech test.
 Finally, once code-complete, close your IDE, run 'docker-compose down --volumes' to stop and remove the database container. Now run 'docker-compose up'. This will run the local database and also build the microservice in Release mode. Test the API is working correctly via this method (as this is the one Giacom will run to test the submission).
 
 ## Submission
-Email development@giacom.com a link to the forked repository or a zip file containing the repository. If applicable, add notes in the email to explain why you have chosen a particular approach.
+Push your code to a new github repository and email development@giacom.com a link to it. If applicable, add notes in the email explaining why you have chosen a particular approach.
 
 ## Help
 If you happen to run into any issues when running the Docker container, try deselecting Hyper-V Services in "Windows Features" (Search for Windows Features in Start Menu), selecting again, and then restarting your computer.

@@ -38,7 +38,7 @@ You should allocate approx. 2 hours to complete the tech test.
 Finally, once code-complete, close your IDE, run 'docker-compose down --volumes' to stop and remove the database container. Now run 'docker-compose up'. This will run the local database and also build the microservice in Release mode. Test the API is working correctly via this method (as this is the one Giacom will run to test the submission).
 
 ## Submission
-Push your code to a new github repository and email development@giacom.com a link to it. If applicable, add notes in the email explaining why you have chosen a particular approach.
+Please push your code to a new github repository then send the repository link to the email address from which the tech test was issued. If applicable, add notes in the email explaining why you have chosen a particular approach.
 
 ## Help
 If you happen to run into any issues when running the Docker container, try deselecting Hyper-V Services in "Windows Features" (Search for Windows Features in Start Menu), selecting again, and then restarting your computer.
@@ -48,6 +48,6 @@ To connect to the MySQL database directly the credentials are as follows:
 * Username: *order-service*
 * Password: *nmCsdkhj20n@Sa*
 
-If you experience further issues getting set up with the tech test please email development@giacom.com.
+If you experience further issues getting set up with the tech test please reply to the email address from which the tech test was issued with your query.
 
 Copyright (c) 2020, Giacom World Networks Ltd.

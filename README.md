@@ -10,7 +10,7 @@ Giacom aka ‘Cloud Market’ is a B2B e-commerce platform which allows IT compa
 * Order Item = A service and product which belongs to an Order
 * Order Status = The current state of an Order
 * Product = An end-offering which can be purchased e.g. '100GB Mailbox'
-* Service = The category the Product belongs to e.g. 'Email't
+* Service = The category the Product belongs to e.g. 'Email'
 * Profit = The difference between Cost and Price
 
 ## Time

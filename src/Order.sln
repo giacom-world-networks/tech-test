@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.WebAPI", "Order.WebAPI\Order.WebAPI.csproj", "{D17FD581-C224-4A9B-8DD0-45605866F0A4}"
 EndProject
@@ -11,7 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Model", "Order.Model\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Data", "Order.Data\Order.Data.csproj", "{F4F259A3-F3B6-477B-9FD4-C4405E6D3EAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Service.Tests", "Order.Service.Tests\Order.Service.Tests.csproj", "{9F52597F-E1AF-4993-AB6A-EF11605AC1B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Service.Tests", "Order.Service.Tests\Order.Service.Tests.csproj", "{9F52597F-E1AF-4993-AB6A-EF11605AC1B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD9AC912-E889-4052-9AFA-1ACFACBC4C07}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		Dockerfile = Dockerfile
+		..\mysql-init.sql = ..\mysql-init.sql
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,11 +17,12 @@ Giacom aka ‘Cloud Market’ is a B2B e-commerce platform which allows IT compa
 You should allocate approx. 2 hours to complete the tech test.
 
 ## Pre-Reqs
-* Visual Studio (or compatible IDE for working with .net Core)
+* Visual Studio 2022 (or compatible IDE for working with .net)
+* .NET 6.0 SDK
 * Git
 * Docker (running Linux containers)
 * Optional: MySQL Workbench / Heidi (database client)
-* Optional: Postman (can also use any other API client or a browser)
+* Optional: Postman (can also use any other API client)
 
 ## Setup
 1. Clone this repository locally
@@ -30,10 +31,11 @@ You should allocate approx. 2 hours to complete the tech test.
 4. Start debugging or run the Order.WebAPI project then query http://localhost:8000/orders in your API client / browser to test that setup is complete. You should see orders being returned from the API
    
 ## Tasks
-1. Add a new API endpoint which returns Orders with a specified Order Status e.g. 'Failed'
-2. Add a new API endpoint which allows an Order Status to be updated to a new status e.g. 'InProgress'
-3. Add a new API endpoint which allows an Order to be created. This should include validation of any parameters.
-4. Add a new API endpoint which calculates Profit by month for all 'completed' Orders
+Add a new API endpoint for each of the following tasks:
+1. Return Orders with a specified Order Status e.g. 'Failed'
+2. Allow an Order Status to be updated to a different status e.g. 'InProgress'
+3. Allow an Order to be created. This should include validation of any parameters
+4. Calculate profit by month for all 'completed' Orders
 
 Finally, once code-complete, close your IDE, run 'docker-compose down --volumes' to stop and remove the database container. Now run 'docker-compose up'. This will run the local database and also build the microservice in Release mode. Test the API is working correctly via this method (as this is the one Giacom will run to test the submission).
 
@@ -50,4 +52,4 @@ To connect to the MySQL database directly the credentials are as follows:
 
 If you experience further issues getting set up with the tech test please reply to the email address from which the tech test was issued with your query.
 
-Copyright (c) 2020, Giacom World Networks Ltd.
+Copyright (c) 2022, Giacom World Networks Ltd.

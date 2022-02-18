@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Order.Data.Entities;
 using Order.Model;
 using System;
 using System.Collections.Generic;
@@ -19,22 +18,23 @@ namespace Order.Data
 
         public async Task<IEnumerable<OrderSummary>> GetOrdersAsync()
         {
-            var orderEntities = await _orderContext.Order
+            var orders = await _orderContext.Order
+                .Include(x => x.Items)
+                .Include(x => x.Status)
+                .Select(x => new OrderSummary
+                {
+                    Id = new Guid(x.Id),
+                    ResellerId = new Guid(x.ResellerId),
+                    CustomerId = new Guid(x.CustomerId),
+                    StatusId = new Guid(x.StatusId),
+                    StatusName = x.Status.Name,
+                    ItemCount = x.Items.Count,
+                    TotalCost = x.Items.Sum(i => i.Quantity * i.Product.UnitCost).Value,
+                    TotalPrice = x.Items.Sum(i => i.Quantity * i.Product.UnitPrice).Value,
+                    CreatedDate = x.CreatedDate
+                })
                 .OrderByDescending(x => x.CreatedDate)
                 .ToListAsync();
-
-            var orders = orderEntities.Select(x => new OrderSummary
-            {
-                Id = new Guid(x.Id),
-                ResellerId = new Guid(x.ResellerId),
-                CustomerId = new Guid(x.CustomerId),
-                StatusId = new Guid(x.StatusId),
-                StatusName = x.Status.Name,
-                ItemCount = x.Items.Count,
-                TotalCost = x.Items.Sum(i => i.Quantity * i.Product.UnitCost).Value,
-                TotalPrice = x.Items.Sum(i => i.Quantity * i.Product.UnitPrice).Value,
-                CreatedDate = x.CreatedDate
-            });
 
             return orders;
         }
@@ -43,39 +43,35 @@ namespace Order.Data
         {
             var orderIdBytes = orderId.ToByteArray();
 
-            var order = await _orderContext.Order.SingleOrDefaultAsync(x => _orderContext.Database.IsInMemory() ? x.Id.SequenceEqual(orderIdBytes) : x.Id == orderIdBytes );
-            if (order == null)
-            {
-                return null;
-            }
-
-            var orderDetail = new OrderDetail
-            {
-                Id = new Guid(order.Id),
-                ResellerId = new Guid(order.ResellerId),
-                CustomerId = new Guid(order.CustomerId),
-                StatusId = new Guid(order.StatusId),
-                StatusName = order.Status.Name,
-                CreatedDate = order.CreatedDate,
-                TotalCost = order.Items.Sum(x => x.Quantity * x.Product.UnitCost).Value,
-                TotalPrice = order.Items.Sum(x => x.Quantity * x.Product.UnitPrice).Value,
-                Items = order.Items.Select(x => new Model.OrderItem
+            var order = await _orderContext.Order
+                .Where(x => _orderContext.Database.IsInMemory() ? x.Id.SequenceEqual(orderIdBytes) : x.Id == orderIdBytes)
+                .Select(x => new OrderDetail
                 {
                     Id = new Guid(x.Id),
-                    OrderId = new Guid(x.OrderId),
-                    ServiceId = new Guid(x.ServiceId),
-                    ServiceName = x.Service.Name,
-                    ProductId = new Guid(x.ProductId),
-                    ProductName = x.Product.Name,
-                    UnitCost = x.Product.UnitCost,
-                    UnitPrice = x.Product.UnitPrice,
-                    TotalCost = x.Product.UnitCost * x.Quantity.Value,
-                    TotalPrice = x.Product.UnitPrice * x.Quantity.Value,
-                    Quantity = x.Quantity.Value
-                })
-            };
-
-            return orderDetail;
+                    ResellerId = new Guid(x.ResellerId),
+                    CustomerId = new Guid(x.CustomerId),
+                    StatusId = new Guid(x.StatusId),
+                    StatusName = x.Status.Name,
+                    CreatedDate = x.CreatedDate,
+                    TotalCost = x.Items.Sum(i => i.Quantity * i.Product.UnitCost).Value,
+                    TotalPrice = x.Items.Sum(i => i.Quantity * i.Product.UnitPrice).Value,
+                    Items = x.Items.Select(i => new Model.OrderItem
+                    {
+                        Id = new Guid(i.Id),
+                        OrderId = new Guid(i.OrderId),
+                        ServiceId = new Guid(i.ServiceId),
+                        ServiceName = i.Service.Name,
+                        ProductId = new Guid(i.ProductId),
+                        ProductName = i.Product.Name,
+                        UnitCost = i.Product.UnitCost,
+                        UnitPrice = i.Product.UnitPrice,
+                        TotalCost = i.Product.UnitCost * i.Quantity.Value,
+                        TotalPrice = i.Product.UnitPrice * i.Quantity.Value,
+                        Quantity = i.Quantity.Value
+                    })
+                }).SingleOrDefaultAsync();
+            
+            return order;
         }
     }
 }

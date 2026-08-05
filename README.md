@@ -18,7 +18,7 @@ You should allocate approx. 2 hours to complete the tech test though it will lik
 
 ## Pre-Reqs
 * Visual Studio 2022 (or compatible IDE for working with .net)
-* .NET 8.0 SDK
+* .NET 10.0 SDK
 * Git
 * Docker (running Linux containers)
 * Optional: MySQL Workbench / Heidi (database client)

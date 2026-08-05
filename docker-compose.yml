@@ -5,17 +5,23 @@ services:
       ports:
           - 8000:8080
       depends_on:
-        - db
-      links:
-        - "db:database"
+        db:
+          condition: service_healthy
   db:
     image: mysql:5.7
     container_name: order-db
     volumes:
           - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql:delegated
-    environment:      
+    environment:
       - MYSQL_ROOT_PASSWORD=nmCsdkhj20n@Sa
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1
     ports:
       - 3306:3306
-      
+    # Gates the API on the database actually accepting queries. mysqladmin ping
+    # is not enough: it succeeds even while the entrypoint is still seeding.
+    healthcheck:
+      test: ["CMD-SHELL", "mysql -uroot -p\"$$MYSQL_ROOT_PASSWORD\" -e 'SELECT 1 FROM orders.order_status LIMIT 1;'"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s

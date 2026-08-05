@@ -1,0 +1,35 @@
+<Project>
+
+  <!--
+    Central Package Management: every package version is declared once here and
+    projects reference packages without a Version attribute.
+  -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Proxies" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
+    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+    <PackageVersion Include="MySql.EntityFrameworkCore" Version="10.0.9" />
+    <PackageVersion Include="NUnit" Version="4.6.1" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      Versions that exist only to lift a vulnerable transitive dependency. Each
+      needs a matching PackageReference in the affected project to take effect.
+    -->
+    <!-- Microsoft.AspNetCore.OpenApi would otherwise bring 2.0.0 (GHSA-v5pm-xwqc-g5wc). -->
+    <PackageVersion Include="Microsoft.OpenApi" Version="2.11.0" />
+    <!-- EF Core Sqlite would otherwise bring 2.1.11 (GHSA-2m69-gcr7-jv3q). -->
+    <PackageVersion Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.12" />
+  </ItemGroup>
+
+</Project>

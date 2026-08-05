@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Order.Model
+﻿namespace Order.Model
 {
     public class OrderItem
     {
@@ -10,11 +8,11 @@ namespace Order.Model
         
         public Guid ServiceId { get; set; }
         
-        public string ServiceName { get; set; }
+        public string ServiceName { get; set; } = null!;
 
         public Guid ProductId { get; set; }
 
-        public string ProductName { get; set; }
+        public string ProductName { get; set; } = null!;
         
         public int Quantity { get; set; }
 

@@ -1,5 +1,3 @@
-﻿using System.Collections.Generic;
-
 namespace Order.Data.Entities
 {
     public partial class OrderStatus
@@ -9,8 +7,8 @@ namespace Order.Data.Entities
             Order = new HashSet<Order>();
         }
 
-        public byte[] Id { get; set; }
-        public string Name { get; set; }
+        public byte[] Id { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
         public virtual ICollection<Order> Order { get; set; }
     }

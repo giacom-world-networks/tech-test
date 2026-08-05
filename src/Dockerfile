@@ -1,12 +1,15 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
+# APP_UID is defined by the .NET base images; running as a non-root user.
+USER $APP_UID
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
+COPY ["Directory.Build.props", "./"]
+COPY ["Directory.Packages.props", "./"]
 COPY ["Order.WebAPI/Order.WebAPI.csproj", "Order.WebAPI/"]
 COPY ["Order.Service/Order.Service.csproj", "Order.Service/"]
 COPY ["Order.Model/Order.Model.csproj", "Order.Model/"]

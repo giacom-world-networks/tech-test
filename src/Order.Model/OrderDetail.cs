@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Order.Model
+﻿namespace Order.Model
 {
     public class OrderDetail
     {
@@ -13,7 +10,7 @@ namespace Order.Model
         
         public Guid StatusId { get; set; }
 
-        public string StatusName { get; set; }
+        public string StatusName { get; set; } = null!;
 
         public DateTime CreatedDate { get; set; }
 
@@ -21,7 +18,7 @@ namespace Order.Model
 
         public decimal TotalPrice { get; set; }
 
-        public IEnumerable<OrderItem> Items { get; set; }
+        public IEnumerable<OrderItem> Items { get; set; } = [];
 
     }
 }

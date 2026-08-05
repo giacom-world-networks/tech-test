@@ -2,15 +2,16 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
-    <PackageReference Include="NUnit" Version="3.13.2" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <!-- Referenced only to override the vulnerable 2.1.11 it pulls in transitively. -->
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

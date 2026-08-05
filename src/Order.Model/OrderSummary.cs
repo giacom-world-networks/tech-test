@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Order.Model
+﻿namespace Order.Model
 {
     public class OrderSummary
     {
@@ -12,7 +10,7 @@ namespace Order.Model
         
         public Guid StatusId { get; set; }
 
-        public string StatusName { get; set; }
+        public string StatusName { get; set; } = null!;
 
         public DateTime CreatedDate { get; set; }
         

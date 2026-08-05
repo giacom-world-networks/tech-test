@@ -30,10 +30,10 @@ namespace Order.Data
                 entity.ToTable("order");
 
                 entity.HasIndex(e => e.CustomerId)
-                    .HasName("CustomerId");
+                    .HasDatabaseName("CustomerId");
 
                 entity.HasIndex(e => e.StatusId)
-                    .HasName("StatusId");
+                    .HasDatabaseName("StatusId");
 
                 entity.Property(e => e.Id).HasColumnType("binary(16)");
 
@@ -61,13 +61,13 @@ namespace Order.Data
                 entity.ToTable("order_item");
 
                 entity.HasIndex(e => e.OrderId)
-                    .HasName("OrderId");
+                    .HasDatabaseName("OrderId");
 
                 entity.HasIndex(e => e.ProductId)
-                    .HasName("ProductId");
+                    .HasDatabaseName("ProductId");
 
                 entity.HasIndex(e => e.ServiceId)
-                    .HasName("ServiceId");
+                    .HasDatabaseName("ServiceId");
 
                 entity.Property(e => e.Id).HasColumnType("binary(16)");
 
@@ -109,7 +109,7 @@ namespace Order.Data
                 entity.ToTable("order_product");
 
                 entity.HasIndex(e => e.ServiceId)
-                    .HasName("order_service_opfk_1");
+                    .HasDatabaseName("order_service_opfk_1");
 
                 entity.Property(e => e.Id).HasColumnType("binary(16)");
 
@@ -146,7 +146,7 @@ namespace Order.Data
                 entity.ToTable("order_status");
 
                 entity.HasIndex(e => e.Name)
-                    .HasName("Status");
+                    .HasDatabaseName("Status");
 
                 entity.Property(e => e.Id).HasColumnType("binary(16)");
 
@@ -192,15 +192,5 @@ namespace Order.Data
         }
 
         private bool IsSqliteProviderUsed => Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite";
-
-        /// <summary>
-        /// Sqlite is used only for in memory database in tests.
-        /// Todo: This might be replaced with proper conversion in method above.
-        /// </summary>
-        /// <returns></returns>
-        public bool IsInMemoryDatabase()
-        {
-            return Database.IsInMemory() || IsSqliteProviderUsed;
-        }
     }
 }
